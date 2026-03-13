@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    tools:context=".TranslateFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/sourceLangSelector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sourceText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:hint="Enter Text"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/sourceLangSelector"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="center"
+        android:background="@drawable/bg_style"
+        android:backgroundTint="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSyncSource"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSwitchLang"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSwitchLang"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text=""
+        android:background="@drawable/ic_compare"
+        android:backgroundTint="@color/black"
+        app:layout_constraintTop_toTopOf="@+id/sourceLangSelector"
+        app:layout_constraintStart_toEndOf="@+id/sourceLangSelector"
+        app:layout_constraintEnd_toStartOf="@+id/targetLangSelector" />
+
+    <Spinner
+        android:id="@+id/targetLangSelector"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_style"
+        android:backgroundTint="@color/grey"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/sourceLangSelector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonSwitchLang"
+        app:layout_constraintTop_toTopOf="@+id/sourceLangSelector"/>
+
+    <ToggleButton
+        android:visibility="gone"
+        android:id="@+id/buttonSyncSource"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:textOff="Download Model"
+        android:textOn="Delete Model"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@+id/downloadModels"
+        app:layout_constraintEnd_toEndOf="@+id/sourceLangSelector"
+        app:layout_constraintStart_toStartOf="@+id/sourceLangSelector"
+        app:layout_constraintTop_toBottomOf="@+id/sourceLangSelector"/>
+
+    <ToggleButton
+        android:visibility="gone"
+        android:id="@+id/buttonSyncTarget"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:textOff="Download Model"
+        android:textOn="Delete Model"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSyncSource"
+        app:layout_constraintEnd_toEndOf="@+id/targetLangSelector"
+        app:layout_constraintStart_toStartOf="@+id/targetLangSelector"
+        app:layout_constraintTop_toTopOf="@+id/buttonSyncSource"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/downloadModels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Download Model"
+        app:layout_constraintBottom_toTopOf="@+id/targetText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSyncSource"/>
+
+    <TextView
+        android:id="@+id/targetText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="100dp"
+        android:text="Translated Text"
+        android:gravity="top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/downloadModels"/>
+
+
+    <ImageView
+        android:id="@+id/conversationImg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_conversation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/targetText"
+        app:tint="@color/colorPrimaryDark"
+        android:background="@drawable/circle"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
